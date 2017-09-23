@@ -15,9 +15,8 @@ app.post('/repos', function (req, res) {
   // and get the repo information from the github API, then
   // save the repo information in the database
   
-  helpers.getReposByUsername(req.body.term);
-  res.redirect('/');
-  
+  helpers.getReposByUsername(req.body.term, res);
+
 });
 
 app.get('/repos', function (req, res) {

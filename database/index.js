@@ -12,11 +12,10 @@ let repoSchema = mongoose.Schema({
 var Repo = mongoose.model('Repo', repoSchema);
 
 var save = (item) => {
-  new Repo(item).save((err, data) => {
+  return new Repo(item).save((err, data) => {
     if (err) {
       console.log('error saving in repo', err);
     }
-    console.log(data);
   });
 };
 

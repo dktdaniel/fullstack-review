@@ -36,7 +36,8 @@ class App extends React.Component {
         term: term
       }),
       contentType: 'application/json',
-      success: () => {
+      success: (data) => {
+        this.setState({repos:data});
       },
     });
   }
