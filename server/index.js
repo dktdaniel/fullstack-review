@@ -16,7 +16,7 @@ app.post('/repos', function (req, res) {
   // save the repo information in the database
   
   helpers.getReposByUsername(req.body.term);
-  res.end();
+  res.redirect('/');
   
 });
 
