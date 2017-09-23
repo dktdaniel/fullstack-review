@@ -30,7 +30,7 @@ let getReposByUsername = (username, res) => {
       return {id: item.id,
               repoName: item.name, 
               stargazers: item.stargazers_count,
-              url: item.url}
+              url: item.html_url}
     });
     Promise.all(namesAndStars.map((repoItem) => {
       db.save(repoItem)
