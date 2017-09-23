@@ -27,10 +27,12 @@ let getReposByUsername = (username) => {
     if(err) {
       console.log('error in github request', err);
     };
+    console.log(data.body);
     var parsedArray = JSON.parse(data.body);
     var namesAndStars = parsedArray.map((item)=> {
       return {repoName: item.name, 
-              stargazers: item.stargazers_count}
+              stargazers: item.stargazers_count,
+              url: item.url}
     });
     namesAndStars.forEach((repoItem) => {
       db.save(repoItem);

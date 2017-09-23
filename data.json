@@ -21,7 +21,7 @@
       "received_events_url": "https://api.github.com/users/octocat/received_events",
       "type": "User",
       "site_admin": false
-    },
+      },
     "private": false,
     "html_url": "https://github.com/octocat/git-consortium",
     "description": "This repo is for demonstration purposes only.",

@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Search from './components/Search.jsx';
 import RepoList from './components/RepoList.jsx';
-
+import RepoListEntry from './components/RepoListEntry.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      repos: []
+      repos: [],
+      searched: 0
     }
   }
   
@@ -17,15 +18,16 @@ class App extends React.Component {
     console.log('about to mount!');
     $.ajax({
       type: 'GET',
-      url: '/',
+      url: '/repos',
       dataType: 'json',
       contentType: 'application/json',
-      success: (data) => console.log('success in get', JSON.parse(data)),
+      success: (data) => {
+        this.setState({repos: data})
+      },
     });
   }
 
   search (term) {
-    
     $.ajax({
       type: 'POST',
       url: '/repos',
@@ -34,7 +36,8 @@ class App extends React.Component {
         term: term
       }),
       contentType: 'application/json',
-      success: () => console.log('success in search'),
+      success: () => {
+      },
     });
   }
 
