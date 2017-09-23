@@ -30,7 +30,8 @@ let getReposByUsername = (username) => {
     console.log(data.body);
     var parsedArray = JSON.parse(data.body);
     var namesAndStars = parsedArray.map((item)=> {
-      return {repoName: item.name, 
+      return {id: item.id,
+              repoName: item.name, 
               stargazers: item.stargazers_count,
               url: item.url}
     });
