@@ -3,7 +3,7 @@ mongoose.connect('mongodb://localhost/fetcher');
 
 let repoSchema = mongoose.Schema({
   // TODO: your schema here!
-  id: { type: Number, unique: true, dropDups: true},
+  id: { type: Number, unique: true},
   repoName: String,
   stargazers: Number,
   url: String
@@ -12,10 +12,11 @@ let repoSchema = mongoose.Schema({
 var Repo = mongoose.model('Repo', repoSchema);
 
 var save = (item) => {
-  return new Repo(item).save((err, data) => {
+  new Repo(item).save((err, data) => {
     if (err) {
       console.log('error saving in repo', err);
     }
+    console.log(data);
   });
 };
 

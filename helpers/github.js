@@ -27,7 +27,7 @@ let getReposByUsername = (username) => {
     if(err) {
       console.log('error in github request', err);
     };
-    console.log(data.body);
+    // console.log(data.body);
     var parsedArray = JSON.parse(data.body);
     var namesAndStars = parsedArray.map((item)=> {
       return {id: item.id,
