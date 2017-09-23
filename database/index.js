@@ -7,12 +7,30 @@ let repoSchema = mongoose.Schema({
   stargazers: Number
 });
 
-let Repo = mongoose.model('Repo', repoSchema);
+var Repo = mongoose.model('Repo', repoSchema);
 
-let save = (/* TODO */) => {
-  // TODO: Your code here
-  // This function should save a repo or repos to
-  // the MongoDB
-}
+var save = (item) => {
+  return new Repo(item).save((err, data) => {
+    if (err) {
+      console.log('error saving in repo', err);
+    }
+    // find('repoName', 'HR-Prep');
+    // Repo.find({repoName: 'HR-Prep'}, (err, data) => {
+    //   console.log('****************DATA**********', data);
+    // });
+  });
+};
+
+var find = (key, value) => {
+  var object = {};
+  object[key] = value;
+  // console.log(object);
+  Repo.find(object, (err, data) => {
+    return data;
+  });
+};
+
+
 
 module.exports.save = save;
+module.exports.find = find;
